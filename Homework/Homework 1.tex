@@ -1,0 +1,217 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{xcolor}
+\title{Introduction to Quantum Electronic Devices and Applications Homework 1}
+\author{Jeremy Chen}
+\begin{document}
+	\maketitle
+	
+\section*{1. Differential Equations and Boundary Conditions}
+Solving the Schrodinger equation involves: i) recognizing the form of the differential equation, ii) writing down the form of the solution in terms of constants, and iii) applying boundary conditions to the solution to determine the values of those constants. We will do this often in this class!
+
+\noindent Consider the following piece-wise function:
+\begin{gather*}
+f_{I}(x) = Ae^{-4x} + Be^{3x}  \text{ for } x \leq 0 \\
+f_{II}(x) = Ce^{-x} + De^{2x} \text{ for } x \geq 0
+\end{gather*}
+where A, B, C, and D are constants to be determined by applying boundary conditions. 
+
+\noindent Apply the following boundary conditions to \textit{determine the numerical values of the constants A, B, C and D and then rewrite the functions $f_{I}(x)$and $f_{II}(x)$ in terms of the values you solved for.}
+
+\begin{enumerate}[i)]
+\item $f_{I}(x \rightarrow -\infty) = 0$ to determine the value of $A$. 
+
+\color{violet}
+$A = 0$
+\color{black}
+
+\item $f_{II}(x \rightarrow \infty) = 0$ to determine the value of $D$. 
+
+\color{violet}
+$D = 0$
+\color{black}
+
+\item $f_{I}(x = 0) = f_{II}(x = 0) = 8$ to determine the value for $B$ or $C$. 
+
+\color{violet}
+$B = 7$ and $C = 7$
+\color{black}
+
+\item Write $f_{I}(x)$ and $f_{II}(x)$ in terms of the numerical values you found for A, B, C, and D. 
+
+\color{violet}
+$f_{I}(x) = 7e^{3x}$ and $f_{II}(x) = 7e^{-x}$. 
+\color{black}
+\end{enumerate}
+
+\section*{2. Magnitude Squared of a Complex Function}
+We will often be integrating the magnitude squared of complex functions $|f(x)|^{2}$, as the magnitude squared of the wave function represents the probability density function of the particle.
+
+\noindent Calculate $\int_{-1}^{1} |f(x)|^{2}dx$ for the following functions:
+
+\begin{enumerate}[i)]
+\item $f(x) = e^{-3x}$
+
+\color{violet}
+$$\int_{-1}^{1} e^{-3x}dx = -\frac{1}{3}e^{-3x} \vert_{-1}^{1} = -\frac{1}{3}e^{-3x} + \frac{1}{3}e^{3x}$$
+\color{black}
+
+\item $f(x) = 5 - 2ix$
+
+\color{violet}
+$$\int_{-1}^{1} 5 - 2ixdx = ( 5x - ix^{2})\vert_{-1}^{1} = (5 - i) - (-5 - i) = 10$$
+\color{black}
+
+\item $f(x) = e^{-i7x}$
+
+\color{violet}
+$$\int_{-1}^{1} e^{-i7x}dx = \frac{1}{7}ie^{-i7x}\vert_{-1}^{1} = \frac{1}{7}ie^{-i7} - \frac{1}{7}ie^{i7}$$
+\color{black}
+\end{enumerate}
+
+\section*{3. Eigenvalues and Eigenvectors}
+In quantum mechanics, vectors represent the state of a system and eigenvalues correspond to physically measurable quantities of a linear transformation (matrix). Consider the matrix \textit{A} below:
+$$A = \begin{bmatrix}
+-4 & 1/2 \\
+-7/2 & 0
+\end{bmatrix}$$
+
+\begin{enumerate}[i)]
+\item Find the eigenvalues $\lambda_{1}$ and $\lambda_{2}$. Show your work.
+
+\color{violet}
+\begin{gather*}
+A - \lambda I = \begin{bmatrix}
+-4 - \lambda & 1/2 \\
+-7/2 & -\lambda
+\end{bmatrix} = (-4 - \lambda)(-\lambda) + \frac{7}{4}= \lambda^{2} + 4\lambda + \frac{7}{4} = \left( \lambda + \frac{7}{2} \right)\left( \lambda + \frac{1}{2} \right) \\
+\left| A + \frac{7}{2}I \right| =  \begin{vmatrix}
+-4 + 7/2 & 1/2 \\
+-7/2 & 7/2
+\end{vmatrix} = \begin{vmatrix}
+-1/2 & 1/2 \\
+-7/2 & 1/2
+\end{vmatrix} \longrightarrow -x_{1} + x_{2} = 0 \longrightarrow x_{2} = x_{1} \longrightarrow \vec{v}_{1} = \begin{bmatrix}
+1 \\
+1 
+\end{bmatrix} \\
+\left| A + \frac{1}{2}I \right| = \begin{vmatrix}
+-4 + 1/2 & 1/2 \\
+-7/2 & 1/2
+\end{vmatrix} = \begin{vmatrix}
+-7/2 & 1/2 \\
+-7/2 & 1/2
+\end{vmatrix} \longrightarrow -\frac{7}{2}x_{1} + \frac{1}{2}x_{2} = 0 \longrightarrow \frac{1}{2}x_{2} = \frac{7}{2}x_{1} \longrightarrow \vec{v}_{2} = \begin{bmatrix}
+1 \\
+7
+\end{bmatrix}
+\end{gather*}
+\color{black}
+
+\item Find the \textit{normalized} eigenvectors $\vec{v}_{1}$ and $\vec{v}_{2}$ that correspond to the eigenvalue $\lambda_{1}$ and $\lambda_{2}$. Show your work.
+
+\noindent \textit{Note}: Normalization requires that the magnitudes of $\vec{v}_{1}$ and $\vec{v}_{2}$ are equal to $1: |\vec{v}| = 1$. 
+
+\color{violet}
+\begin{gather*}
+\vec{q}_{1} = \frac{1}{\sqrt{1 + 1}}\begin{bmatrix}
+1 \\
+1
+\end{bmatrix} = \frac{1}{\sqrt{2}}\begin{bmatrix}
+1 \\
+1
+\end{bmatrix} \\
+\vec{v}_{2} = \vec{v}_{2} - \braket{\vec{v}_{2}, \vec{q}_{1}}\vec{q}_{1} = \begin{bmatrix}
+1 \\
+7
+\end{bmatrix} - \left( \begin{bmatrix}
+1 \\
+7
+\end{bmatrix} * \frac{1}{\sqrt{2}}\begin{bmatrix}
+1 & 1
+\end{bmatrix} \right)\frac{1}{\sqrt{2}}\begin{bmatrix}
+1 \\
+1
+\end{bmatrix} = \begin{bmatrix}
+1 \\
+7
+\end{bmatrix} - \frac{7}{\sqrt{2}}\frac{1}{\sqrt{2}}\begin{bmatrix}
+1 \\
+1
+\end{bmatrix} = \begin{bmatrix}
+1 \\
+7
+\end{bmatrix} - \frac{7}{2}\begin{bmatrix}
+1 \\
+1
+\end{bmatrix} = \begin{bmatrix}
+5/2 \\
+7/2
+\end{bmatrix} \\
+\vec{q}_{2} = \frac{1}{\sqrt{\left( \frac{7}{2} \right)^{2} + \left( \frac{5}{2} \right)^{2}}}\begin{bmatrix}
+5/2 \\
+7/2
+\end{bmatrix} = \frac{1}{\sqrt{\frac{74}{4}}}\begin{bmatrix}
+5/2 \\
+7/2
+\end{bmatrix}
+\end{gather*}
+\color{black}
+
+\end{enumerate}
+
+\section*{4. Discrete Probability}
+As mentioned in Problem 2, the magnitude squared of the wave function represents the probability density function (PDF) of a particle in quantum mechanics. We will use the particle’s PDF to calculate probabilities and expectation values for various measurable quantities. Although we’ll be working with continuous functions, the concepts are the same as in discrete probability.
+
+\noindent The dataset below shows the daily high temperature as measured in Troy, NY for 10 days in December 2023. Suppose we want to use this dataset to predict information relating to the daily high temperature in December for future years. Answer the questions below:
+
+\begin{enumerate}[i)]
+\item What is the probability that the temperature will be between the values 1C and 5C?
+
+\color{violet}
+$\frac{5}{10} = \frac{1}{2}$
+\color{black}
+
+\item What is the expectation value $\braket{T}$ of the temperature?
+
+\color{violet}
+$4.3$
+\color{black}
+
+\item What is the variance $\sigma_{T}^{2}$ of the temperature?
+
+\color{violet}
+$9.23$
+\color{black}
+
+\end{enumerate}
+
+\section*{5. Dimensional Analysis}
+
+\begin{enumerate}[i)]
+\item $h \cdot f = E = $ Energy in Joules $[J]$
+
+\color{violet}
+$J * s * \frac{1}{s} = J$
+\color{black}
+
+\item $h/p = \lambda = $ Wavelength in meters $[m]$
+
+\color{violet}
+$\frac{J * s}{kg * m * s} = \frac{kg * m^{2} * s^{-1}}{kg * m * s^{-1}} = m$
+\color{black}
+
+\item $\frac{\hbar^{2}k^{2}}{2m} = E = $ Energy in Joules $[J]$
+
+\color{violet}
+$\frac{(J*s)^{2}(m^{-1})^{2}}{kg} = \frac{J^{2}s^{2}m^{-2}}{kg} = \frac{kg^{2} * m^{4} * s^{4} * s^{2} * m^{-2}}{kg} = J$
+\color{black}
+\end{enumerate}
+
+\end{document}

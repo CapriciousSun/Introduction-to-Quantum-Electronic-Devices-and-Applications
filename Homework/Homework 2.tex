@@ -1,0 +1,72 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{xcolor}
+\title{Introduction to Quantum Electronic Devices and Applications}
+\author{Jeremy Chen}
+\begin{document}
+	\maketitle
+
+\begin{enumerate}[\textbf{\arabic{enumi}. }]
+
+\item \textbf{Normalization of Wave Functions}
+
+\noindent Find the constant $A$ such that the wave function below is normalized on the specified domain. If a
+wave function is not normalizable on the specified domain, clearly state that in your answer, along
+with any resulting physical consequences for what the wave function can/cannot represent.
+
+\begin{enumerate}[i)]
+
+\item $\Psi(x, t) = Ae^{-\frac{m\omega}{2\hbar}x^{2}}e^{-i\omega t}$ for $-\infty < x < \infty$
+
+\color{violet}
+This function is non-normalizable.
+\color{black}
+
+\item $\Psi(x, t) = A\sin\left( \frac{\pi}{L}x \right)e^{-i\frac{\hbar\pi^{2}}{2mL^{2}}t}$ for $0 < x < L$
+
+\color{violet}
+$A = \sqrt{\frac{2}{L}}$
+\color{black}
+
+\item $\Psi(x) = \begin{cases}
+Ae^{5x} \text{ for } x \leq 0 \\
+Ae^{-3x} \text{ for } x \geq 0 
+\end{cases}$ for $-\infty < x < \infty$
+
+\color{violet}
+$\begin{cases}
+|A| = \sqrt{10} \text{ for } x \leq 0 \\
+|A| = \sqrt{6} \text{ for } x \geq 0 
+\end{cases}$
+\color{black}
+
+\item $\Psi(x, t) = Ae^{-ikx}e^{-i\omega t}$ for $-\infty < x < \infty$
+
+\color{violet}
+This function is non-normalizable.
+\color{black}
+
+\end{enumerate}
+
+\item \textbf{Expectation Values and the Uncertainty Principle}
+
+Calculate the quantities below for the given (normalized) wave function $\Psi(x, t) = \pi^{-\frac{1}{4}}e^{-(\frac{x^{2}}{2} + \frac{iEt}{\hbar})}$
+
+\begin{enumerate}[i)]
+
+\item $\braket{x}$
+
+\color{violet}
+
+\color{black}
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
