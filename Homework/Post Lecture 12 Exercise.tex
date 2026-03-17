@@ -1,0 +1,30 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{xcolor}
+\title{Introduction to Quantum Electronic Devices and Applications Post Lecture Exercise 12}
+\author{Jeremy Chen}
+\begin{document}
+	\maketitle
+
+Use perturbation theory to calculate the first order correction $E_{n}^{1}$ to the energies of an infinite square well with a shelf of height $V_{0}$ extending from $x = L/4$ to $x = 3L/4$.
+
+The potential of the system is given by
+$$V(x) = \begin{cases}
+V_{0} & \text{for } \frac{L}{4} < x < \frac{3L}{4} \\
+0 & \text{for } 0 < x < \frac{L}{4} \text{ and } \frac{3L}{4} < x < L \\
+\infty & \text{  otherwise} 
+\end{cases}$$
+
+\color{violet}
+Given that the raised floor only goes from $\frac{L}{4}$ to $\frac{3L}{4}$, the correction term where $\hat{H}^{1} = V_{0}$ also goes from $\frac{L}{4}$ to $\frac{3L}{4}$. So the inner product of the quantum state together with the correction term is $\braket{\psi_{n}^{0} | \hat{H}^{1} | \psi_{n}^{0}}$, which is solved like
+\begin{gather*}
+E_{n}^{1} = \braket{\psi_{n}^{0} | \hat{H}^{1} | \psi_{n}^{0}} = \int_{\frac{L}{4}}^{\frac{3L}{4}} \left( \left(  \sqrt{\frac{2}{L}}\sin\left( \frac{n\pi x}{L} \right) \right) V_{0} \left( \sqrt{\frac{2}{L}}\sin\left( \frac{n\pi x}{L} \right) \right) \right) dx = \frac{2}{L}V_{0} \int_{\frac{L}{4}}^{\frac{3L}{4}} \sin^{2}\left( \frac{n\pi x}{L} \right)dx \\
+= \frac{2}{L}V_{0} \int_{\frac{L}{4}}^{\frac{3L}{4}} \frac{1}{2} (1 - \cos\left( \frac{2n\pi x}{L} \right)) dx = \frac{2}{L} V_{0} \left(- \frac{L\sin\left( \frac{3\pi n}{2} \right) - \sin\left( \frac{\pi n}{2} \right) - \pi n}{4\pi n}\right) = -V_{0} \frac{\sin\left( \frac{3\pi n}{2} \right) - \sin\left( \frac{\pi n}{2} \right) - \pi n}{2\pi n}
+\end{gather*}
+\color{black}
+
+\end{document}

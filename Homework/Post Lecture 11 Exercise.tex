@@ -1,0 +1,23 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{xcolor}
+\title{Introduction to Quantum Electronic Devices and Applications Post Lecture Exercise 11}
+\author{Jeremy Chen}
+\begin{document}
+	\maketitle
+
+\section*{Q1.2}
+Evaluate the WKB energy condition integral to determine the approximate bound state energies for the well:
+$$\int_{x_{t_{1}}}^{x_{t_2}} p(x)dx = n\pi\hbar$$
+
+\color{violet}
+Given that $p = \sqrt{2m(E_{n} - V(x))}$, the integration woudl look like the following
+$$\int_{x_{t_{1}}}^{x_{t_{2}}} \sqrt{2m(E_{n} - V(x))}dx = \int_{x_{t_{1}}}^{x_{t_{2}}} \sqrt{2mE_{n}}dx = \left. \left( \sqrt{2mE_{n}}x \right)\right|_{0}^{L} = \sqrt{2mE_{n}}L = n\pi\hbar$$
+Solving for $E_{n}$ gets
+$$\sqrt{2mE_{n}} = \frac{n\pi\hbar}{L} \longrightarrow 2mE_{n} = \frac{n^{2}\pi^{2}\hbar^{2}}{L^{2}} \longrightarrow E_{n} = \frac{n^{2}\pi^{2}\hbar^{2}}{2mL^{2}}$$
+\color{black}
+
+\end{document}
