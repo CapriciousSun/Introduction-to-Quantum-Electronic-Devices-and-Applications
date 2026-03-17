@@ -4,10 +4,12 @@
 \usepackage{amsmath}
 \usepackage{braket}
 \usepackage{enumerate}
+\usepackage{graphicx}
 \usepackage[margin=0.5in]{geometry}
 \usepackage{xcolor}
 \title{Introduction to Quantum Electronic Devices and Applications}
 \author{Jeremy Chen}
+\date{January 27, 2026}
 \begin{document}
 	\maketitle
 
@@ -62,7 +64,163 @@ Calculate the quantities below for the given (normalized) wave function $\Psi(x,
 \item $\braket{x}$
 
 \color{violet}
+The setup for $\braket{x}$ is $\int_{-\infty}^{\infty} \Psi^{*} x \Psi dx$. 
+\begin{gather*}
+\braket{x} = \int_{-\infty}^{\infty} \pi^{-\frac{1}{4}} e^{-\frac{x^{2}}{2}} x \pi^{-\frac{1}{4}} e^{-\frac{x^{2}}{2}}dx = \pi^{\frac{1}{16}} \int_{-\infty}^{\infty} xe^{-x^{2}}dx = \frac{-\pi^{\frac{1}{16}}}{2} \left. \left( e^{-x^{2}} \right) \right\vert_{-\infty}^{\infty} = 0
+\end{gather*}
+\color{black}
 
+\item $\braket{x^{2}}$
+
+\color{violet}
+The setup for $\braket{x^{2}}$ is $\int_{-\infty}^{\infty} \Psi^{*} x^{2} \Psi dx$. 
+\begin{gather*}
+\braket{x^{2}} = \int_{-\infty}^{\infty} \pi^{-\frac{1}{4}} e^{-\frac{x^{2}}{2}} x^{2} \pi^{-\frac{1}{4}} e^{-\frac{x^{2}}{2}}dx = \pi^{\frac{1}{16}} \int_{-\infty}^{\infty} x^{2} e^{-x^{2}}dx = \pi^{\frac{1}{16}} \left[ \left. \left( \frac{x}{2} e^{-x^{2}} \right) \right\vert_{-\infty}^{\infty} - \frac{1}{2} \int_{-\infty}^{\infty} e^{-x^{2}}dx \right] \\
+= \pi^{\frac{1}{16}} \left. \left( -\frac{1}{4} e^{-x^{2}} \right) \right\vert_{-\infty}^{\infty} = \frac{\pi^{9/16}}{4	}
+\end{gather*}
+\color{black}
+
+\item $\sigma_{x}$
+
+\color{violet}
+The setup for $\sigma_{x}$ is $\sqrt{\braket{x^{2}} - \braket{x}^{2}}$. 
+\begin{gather*}
+\sigma_{x} = \sqrt{\frac{\pi^{9/16}}{4} - 0^{2}} = \frac{\pi^{3/4}}{2}
+\end{gather*}
+\color{black}
+
+\item $\braket{p}$
+
+\color{violet}
+The setup for $\braket{p}$ is $\int_{-\infty}^{\infty} \Psi^{*} \frac{\hbar}{i} \frac{\partial \Psi}{\partial x}dx$.
+\begin{gather*}
+\braket{p} = \int_{-\infty}^{\infty} \pi^{-\frac{1}{4}} e^{-\frac{x^{2}}{2}} \frac{\hbar}{i} \frac{\partial \pi^{-\frac{1}{4}} e^{-\frac{x^{2}}{2}}}{\partial x}dx = \pi^{\frac{1}{16}} \frac{\hbar}{i} \int_{-\infty}^{\infty} e^{-\frac{x^2}{2}} \frac{\partial e^{-\frac{x^{2}}{2}}}{\partial x} dx = \frac{\pi^{1/16}\hbar}{i} \int_{-\infty}^{\infty} x (-e^{x^{2}})dx = 0
+\end{gather*}
+\color{black}
+
+\item $\braket{p^{2}}$
+
+\color{violet}
+The setup for $\braket{p^{2}}$ is $\int_{-\infty}^{\infty} \Psi -\hbar^{2} \frac{\partial^{2} \Psi}{\partial x^{2}}dx$
+
+\begin{gather*}
+\braket{p^{2}} = -\pi^{1/16}\hbar^{2}\int_{-\infty}^{\infty} e^{-\frac{x^{2}}{2}} \frac{\partial^{2} e^{-\frac{x^{2}}{2}}}{\partial x^{2}}dx = -\pi^{1/16}\hbar^{2} \left( \int_{-\infty}^{\infty} -e^{-x^{2}}dx + \int_{-\infty}^{\infty} x^{2}e^{-x^{2}}dx \right) = \frac{\pi^{9/16}\hbar^{2}}{4}
+\end{gather*}
+\color{black}
+
+\item $\sigma_{p}$
+
+\color{violet}
+The setup for $\sigma_{p}$ is $\sqrt{\braket{p^{2}} - \braket{p}^{2}}$.
+\begin{gather*}
+\sigma_{p} = \sqrt{\frac{\pi^{9/16}\hbar^{2}}{4} - 0^{2}} = \frac{\pi^{3/4}\hbar}{2}
+\end{gather*}
+\color{black}
+
+\item $\sigma_{x}\sigma_{p}$
+
+\color{violet}
+\begin{gather*}
+\sigma_{x}\sigma_{p} = \frac{\pi^{3/4}}{2} \frac{\pi^{3/4}\hbar}{2} = \frac{\pi^{3/2}\hbar}{4}
+\end{gather*}
+The minimum amount of amount of deviation is $\frac{\hbar}{2}$. This is almost 1.5 times the minimum. 
+\color{black}
+
+\end{enumerate}
+
+\item \textbf{Stationary States and Time Evolution}
+
+\begin{enumerate}
+	
+\item Given the wave function 
+$$\Psi(x, t) = \psi_{3}(x)e^{-\frac{iE_{3}t}{\hbar}}$$
+where $\psi_{n}(x) = \sqrt{\frac{2}{L}}\sin(\frac{n\pi}{L}x)$ and $E_{n} = \frac{\hbar^{2}}{2m} \left( \frac{n\pi}{L} \right)^{2}$, and that the Hamiltonian for this system is 
+$$\hat{H} = -\frac{\hbar^{2}}{2m} \frac{d^{2}}{dx^{2}} \text{ for } 0 < x < L$$
+answer the following questions
+
+\begin{enumerate}[i)]
+	
+\item Is $\Psi(x, t)$ a stationary state for this system? How do you know?
+
+\color{violet}
+It is a stationary state, because the state $\psi_{3}$ does not vary as time evolves. 
+\color{black}
+
+\item If we were to measure the energy of this state, which values could we obtain and with which probabilities?
+
+\color{violet}
+The energy measured would be $E_{3}$ with 100\% probability. 
+\color{black}
+
+\item Are $\frac{d\braket{x}}{dt}$ and $\frac{d\braket{p}}{dt}$ zero for this state? What about $\frac{d\braket{E}}{dt}$? Explain your reasoning for each.
+
+\color{violet}
+Both $\frac{d\braket{x}}{dt}$ and $\frac{d\braket{p}}{dt}$ are zero because the wavefunction is only tied to position. $\frac{d\braket{E}}{dt}$ would not be, since it is tied to the time evolution of the state. 
+\color{black}
+
+\end{enumerate}
+
+\item Now, consider a new wave function (for the same Hamiltonian):
+$$\Psi(x, t) = \frac{1}{\sqrt{5}}\psi_{1}(x)e^{-\frac{iE_{1}t}{\hbar}} + \frac{2}{\sqrt{5}}\psi_{3}(x)e^{-\frac{iE_{3}t}{\hbar}}$$
+
+\begin{enumerate}
+
+\item Calculate $|\Psi(x, t)|^{2}$. Is $\Psi(x, t)$ a stationary state for this system? How do you know?
+
+\color{violet}
+This is not a stationary state, because it is a superposition of many eigenstates, hence there is time dependence on what the resulting wavefunction. 
+\color{black}
+
+\item IF we were to measure the energy of this state, which values could we obtain and with which probabilities?
+
+\color{violet}
+The values obtained would be $E_{1}$ with probability $\frac{1}{5}$ and $E_{3}$ with probability $\frac{4}{5}$. 
+\color{black}
+
+\item Are $\frac{d\braket{x}}{dt}$ and $\frac{d\braket{p}}{dt}$ zero for this state? What about $\frac{d\braket{E}}{dt}$? Explain your reasoning for each.
+
+All three values would not be zero, since the superposition would result in the normalized wavefunction to oscillate. 
+
+\end{enumerate}
+
+\end{enumerate}
+
+\item \textbf{Quantum Wells of an InGaN LED}
+
+LEDs use quantum wells in their active regions in order to confine electrons and holes to areas where
+light is designed to be generated. Although not an entirely realistic model, the quantum wells can be
+modeled as an infinite square well for a rough calculation.
+
+\begin{enumerate}[i)]
+
+\item The quantum wells of an LED typically have only two energy states in them. How wide $L$ should the well be if we want the 1st excited state to have an energy of $0.4$ eV (a typical value for the energy at the top of a real quantum well)?
+
+\color{violet}
+The well should be 1.938 nm wide.
+\color{black}
+
+\item What is the ground state energy of the quantum well?
+
+\color{violet}
+The ground state energy is 0.1 eV.
+\color{black}
+
+\item Sketch and label $|\psi(x)|^{2}$ for the ground state and the first excited state.
+
+\begin{figure}[h!]
+	\centering\includegraphics[totalheight=400px]{Energy_States.jpeg}
+\end{figure}
+
+\item Assuming we want to have a majority of the electrons localized around the center of the quantum well, which of our two states is more useful.
+
+\color{violet}
+The first excited is more useful, since the electrons would be imparted energy, which would then shift them within the atomic orbitals of the atom, generating light. 
+\color{black}
+
+\item If a photon incident on the quantum well has enough energy, it can be absorbed and promote an electron from the ground state to the 1st excited state. What is the maximum wavelength of a photon that could promote an electron from the ground state to the 1st excited state?
+
+\color{violet}
+The maximum wavelength of the promotion photon would have a wavelength of $1.379 * 10^{14}$m. 
 \color{black}
 
 \end{enumerate}
