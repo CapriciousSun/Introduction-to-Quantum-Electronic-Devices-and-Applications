@@ -1,0 +1,138 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\title{Introduction to Quantum Electronic Devices and Applications Homework 6}
+\author{Jeremy Chen}
+\begin{document}
+	\maketitle
+
+\begin{enumerate}[\textbf{\arabic{enumi}. }]
+
+\item \textbf{Approximate Energy Levels of the Tilted Infinite Square Well (Perturbation Theory)}
+
+In Homework 5, ou used the WKB approximation to estimate the bound state energies of an infinite well with a linear potential bottom:
+\begin{gather*}
+V(x) = \begin{cases}
+e|E|x \text{\ \ \ for} & 0 < x < L \\
+\infty & \text{otherwise}
+\end{cases}
+\end{gather*}
+where $|E|$ is the magnitude of the electric field. In this problem, you will again estimate the bound state energies of the well, but using $1^{\text{st}}$ order non-degenerate perturbation theory.
+
+\begin{enumerate}[a)]
+
+\item Specify the unperturbed Hamiltonian $\hat{H}^{0}$ and the perturbation $\hat{H}'$.
+
+\color{violet}
+The full Hamiltonian $\hat{H}$ is given by $\frac{\hat{p}^{2}}{2m} + V(x)$ where the first term is $\hat{H}^{(0)}$ and the second term is $\hat{H}'$. So, $\hat{H}^{(0)} = \frac{\hat{p}^{2}}{2m}$ and $\hat{H}' = e|E|x$ for $0 < x < L$. 
+\color{black}
+
+\item Calculate the $1^{\text{st}}$ order correction to the bound state energies $E_{n}^{1}$. 
+
+\color{violet}
+\begin{gather*}
+E_{n}^{1} = \braket{\psi_{n}^{0} | \hat{H}' | \psi_{n}^{0}} = \braket{\psi_{n}^{0} | e|E|x | \psi_{n}^{0}} = e|E|x \braket{\psi_{n}^{0} | \psi_{n}^{0}} = e|E|x
+\end{gather*}
+So the first order correction is potential within the well. 
+\color{black}
+
+\item Estimate the three lowest bound state energies in the well $(E_{1}, E_{2}, \text{ and } E_{3})$ to the first order for the case $L = 1$ nm and $|E| = \num{1e8}$ V/m, using the expression $E_{n} \approx E_{n}^{0} + E_{n}^{1}$. How do the energies you calculated compare to the estimated energies obtained using the WKB approximation? \textit{Note}: $E_{n}^{0}$ are the bound state energies of the unperturbed infinite square well system. 
+
+\color{violet}
+At $E_{1}$,
+\begin{gather*}
+E_{1} \approx E_{1}^{(0)} + E_{1}^{(1)} = \frac{(\num{1.055e-34})^{2}\pi^{2}1^{2}}{2m * (\num{1e-9})^{2}} + \int_{0}^{L} e * \num{1e8} * x dx \\
+= \frac{(\num{1.055e-34})^{2}\pi^{2}1^{2}}{2 * \num{9.109e-31} * (\num{1e-9})^{2}} +  \frac{\num{1.602e-19} * \num{1e8} * (\num{1e-9})^{2}}{2} = \num{6.03e-20} \text{ J} = 0.376 \text{ eV}
+\end{gather*}
+At $E_{2}$,
+\begin{gather*}
+E_{2} \approx E_{2}^{(0)} + E_{2}^{(1)} = \frac{(\num{1.055e-34})^{2}\pi^{2}2^{2}}{2m * (\num{1e-9})^{2}} + \int_{0}^{L} e * \num{1e8} * x dx \\
+= \frac{(\num{1.055e-34})^{2}\pi^{2}2^{2}}{2 * \num{9.109e-31} * (\num{1e-9})^{2}} +  \frac{\num{1.602e-19} * \num{1e8} * (\num{1e-9})^{2}}{2} = \num{2.412e-19} \text{ J} = 1.506 \text{ eV}
+\end{gather*}
+At $E_{3}$,
+\begin{gather*}
+E_{3} \approx E_{3}^{(0)} + E_{3}^{(1)} = \frac{(\num{1.055e-34})^{2}\pi^{2}3^{2}}{2m * (\num{1e-9})^{2}} + \int_{0}^{L} e * \num{1e8} * x dx \\
+= \frac{(\num{1.055e-34})^{2}\pi^{2}3^{2}}{2 * \num{9.109e-31} * (\num{1e-9})^{2}} +  \frac{\num{1.602e-19} * \num{1e8} * (\num{1e-9})^{2}}{2} = \num{5.427e-19} \text{ J} = 3.388 \text{ eV}
+\end{gather*}
+\color{black}
+
+\item Find the $1^{\text{st}}$ order correction to the ground state wave function: $\psi_{1}^{1}(x) = \sum_{m \neq 1} \frac{\braket{\psi_{m}^{0} | H' | \psi_{1}^{0}}}{E_{1}^{0} - E_{m}^{0}} \psi_{m}^{0}$
+
+\end{enumerate}
+
+\item \textbf{Approximate Energy Levels of a Charge Qubit}
+
+IBM quantum computers employ a type of \textit{charge qubit} called a \textit{transmon qubit}. As mentioned earlier in the semester, charge qubits are modeled as a quantum LC circuit. While the capacitor $C$ in the charge qubit model is linear, the inductor is a
+superconducting element known as a Josephson junction, which behaves like a non-linear inductor $L_{j}$. In this problem, we will use $1^{\text{st}}$ order non-degenerate perturbation theory to estimate the energy levels of the charge qubit LC circuit.
+
+The Hamiltonian for the charge qubit is given by
+\begin{gather*}
+\hat{H} = \frac{q^{2}}{2C} - E_{J}\cos(2\pi K_{J} \varphi)
+\end{gather*}
+where the $2^{\text{nd}}$ term containing the cosine is the energy stored in the Josephson junction, which consists of $E_{jJ}$, a constant called the Josephson energy, and $K_{J}$, the Josephson constant. 
+
+\begin{enumerate}[a)]
+
+\item In order to apply perturbation theory to the charge qubit’s Hamiltonian, we need to be able to express the Hamiltonian as the sum of $\hat{H}^{0}$ and $\hat{H}'$, where $\hat{H}^{0}$ is the Hamiltonian of the quantum LC circuit with a linear capacitor and inductor. By Taylor series expanding the term $E_{J}\cos(2\pi K_{J}\varphi)$ around $\varphi = 0$ and including terms up to $\varphi^{4}$, show that the Hamiltonian is
+\begin{gather*}
+\hat{H} \approx \frac{q^{2}}{2C} - E_{J} + 2\pi^{2}K_{J}^{2}E_{J}\varphi^{2} - \frac{2}{3} \pi^{4}K_{J}^{4}E_{J}\varphi^{4}
+\end{gather*}
+
+\item Using the result above, write the expression for the unperturbed Hamiltonian $\hat{H}^{0}$ and perturbation term $\hat{H}'$. Additionally, specify the effective inductance $L_{\text{eff}}$ for the unperturbed Hamiltonian by making an analogy to the linear quantum LC circuit's Hamiltonian in the form:
+\begin{gather*}
+\hat{H} = \frac{\hat{\varphi}^{2}}{2L} + \frac{\hat{q}^{2}}{2C}
+\end{gather*}
+
+\item Using non-degenerate perturbation theory, show that the $1^{\text{st}}$ order correction to the energies of the charge qubit $E_{n}^{1}$ is:
+\begin{gather*}
+E_{n}^{1} = -E_{J} - \frac{E_{C}}{12}[6n^{2} + 6n + 3]
+\end{gather*}
+where $E_{C}$ is the capacitive charging energy and $E_{J}$ is the Josephson energy.
+
+\textit{Note}: the expression for the flux operator in terms of $E_{C}$ and $E_{J}$ is $\hat{\varphi} = \frac{i}{\pi K_{J}}\left( \frac{E_{C}}{8E_{J}} \right)^{\frac{1}{4}}(\hat{a}_{+} - \hat{a}_{-})$. 
+
+\end{enumerate}
+
+\item \textbf{The Trapped-Ion Qubit as a Two-Level System}
+
+Conceptually, the most fundamental requirements for a qubit are:
+\begin{itemize}
+
+\item that it be a system configuration with only two distinct, \textit{computational} states $\ket{0}$ and $\ket{1}$
+
+\item that we can somehow interact with this system in order to manipulate the overall state of the system $\ket{\psi(t)} = c_{0}(t)\ket{0} + c_{1}(t)\ket{1}$
+
+\end{itemize}
+
+In trapped-ion qubits, the computational states are chosen to be two states that are relatively close in energy. We can then use electromagnetic radiation of an appropriately chosen frequency to manipulate the state of the system. Treating such a system as consisting of only two distinct states is valid as long as the transition rates between either of the computational states and all other states of the system are negligible.
+
+In this problem, we will explore the transition rates between the ground state $\psi_{000}$ and the 4-fold degenerate first excited states $\psi_{2lm}$ of a hydrogen-like atom. The electromagnetic interaction is provided by a z-polarized, time-dependent electric field $\vec{E} = E(t)\hat{z}$.
+
+The wave functions for each of the states are:
+\begin{gather*}
+\psi_{100} = \frac{1}{\sqrt{\pi a_{z}^{3}}} e^{-\frac{r}{a_{z}}} \\
+\psi_{200} = \frac{1}{4\sqrt{2\pi a_{z}^{3}}} \left[ 2 - \frac{r}{a_{z}} \right]e^{-\frac{r}{2a_{z}}};\ \ \ \psi_{210} = \frac{\cos(\theta)}{4\sqrt{2\pi a_{z}^{3}}} \left[ \frac{r}{a_{z}} \right] e^{-\frac{r}{2a_{z}}};\ \ \ \psi_{21\pm1} = \frac{\sin(\theta)e^{i\varphi}}{8\sqrt{\pi a_{z}^{3}}} \left[ \frac{r}{a_{z}} \right] e^{-\frac{r}{2a_{z}}}
+\end{gather*}
+and the electromagnetic perturbation to the system is $\hat{H}' = eE(t)z$. 
+
+\begin{enumerate}[a)]
+
+\item Calculate the matrix elements $H_{i, 100}' = \braket{\psi_{i} | H' | \psi_{100}}$ between the ground state and each of the four excited states. \textit{Hint}: exploit the oddness of the integrals along the z-axis to avoid having to evaluate the entire integral in each case. Since the spherical harmonics are symmetrical around the z-axis, you should only need to worry about the radial part of each wave function.
+
+\item Show that the matrix elements $H_{ii}' = \braket{\psi_{i} | H' | \psi_{i}} = 0$ for all five states.
+
+\item Considering the results from a) and b), which transitions between these states are allowed and which transitions are not allowed? If we assume that the frequency we have chosen for our electromagnetic wave renders transition rates from the $n = 1$ and $n = 2$ states to higher energy states negligible, are we justified in treating this sytem as a two-level system?
+
+\item If the electromagnetic perturbation to the system is instead y-polarized, $\hat{H}' = eE(t)y$, how does the set of allowed transitions change? Can we control which transitions are allowed by choosing the form of our perturbation (i.e. the polarization of the electric field)? 
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
