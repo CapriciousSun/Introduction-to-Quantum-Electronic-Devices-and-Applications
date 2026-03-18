@@ -64,6 +64,18 @@ E_{3} \approx E_{3}^{(0)} + E_{3}^{(1)} = \frac{(\num{1.055e-34})^{2}\pi^{2}3^{2
 
 \item Find the $1^{\text{st}}$ order correction to the ground state wave function: $\psi_{1}^{1}(x) = \sum_{m \neq 1} \frac{\braket{\psi_{m}^{0} | H' | \psi_{1}^{0}}}{E_{1}^{0} - E_{m}^{0}} \psi_{m}^{0}$
 
+\color{violet}
+Given that ground state wave function, the expectation value would need to be calculated first
+\begin{gather*}
+\braket{\psi_{m}^{0} | H' | \psi_{1}^{0}} = \int_{0}^{L} \sqrt{\frac{2}{L}} \sin\left( \frac{m\pi x}{L} \right) V_{0} \sqrt{\frac{2}{L}} \sin\left( \frac{\pi x}{L} \right) dx = \frac{2}{L} V_{0} \int_{0}^{L} \sin\left( \frac{m\pi x}{L} \right) \sin\left( \frac{\pi x}{L} \right) dx \\
+= \frac{2}{L} V_{0} \int_{0}^{L} \frac{1}{2} \left[ \cos \left( \frac{\pi x}{L}(m - 1) \right) + \cos\left( \frac{\pi x}{L}(m + 1) \right) \right]dx = \frac{V_{0}}{\pi} \left\{ \frac{\sin\left[ \frac{\pi x}{L}(m - 1) \right]}{m - 1} + \frac{\sin\left[ \frac{\pi x}{L}(m  + 1) \right]}{m + 1} \right\}
+\end{gather*}
+Given that, $\psi_{1}^{1}(x)$ is
+\begin{gather*}
+\psi_{1}^{1}(x) = \sum_{m \neq 1} \frac{\frac{V_{0}}{\pi} \left\{ \frac{\sin\left[ \frac{\pi x}{L}(m - 1) \right]}{m - 1} + \frac{\sin\left[ \frac{\pi x}{L}(m  + 1) \right]}{m + 1} \right\}}{\frac{\hbar^{2}\pi^{2}}{2mL^{2}}(1^{2} - m^{2})}\sqrt{\frac{2}{L}} \sin\left( \frac{m\pi x}{L} \right)
+\end{gather*}
+\color{black}
+
 \end{enumerate}
 
 \item \textbf{Approximate Energy Levels of a Charge Qubit}
@@ -84,10 +96,28 @@ where the $2^{\text{nd}}$ term containing the cosine is the energy stored in the
 \hat{H} \approx \frac{q^{2}}{2C} - E_{J} + 2\pi^{2}K_{J}^{2}E_{J}\varphi^{2} - \frac{2}{3} \pi^{4}K_{J}^{4}E_{J}\varphi^{4}
 \end{gather*}
 
+\color{violet}
+The Taylor series expansion of $\cos(x)$ is $1 - \frac{x^{2}}{2!} + \frac{x^{4}}{4!} + \dots$. So the series expansion of $\cos(2\pi K_{J}\varphi)$ is
+\begin{gather*}
+\cos(2\pi K_{J}\varphi) \approx 1 - \frac{(2\pi K_{J}\varphi)^{2}}{2} + \frac{(2\pi K_{J}\varphi)^{4}}{24} = 1 - 2\pi^{2}K_{J}^{2}\varphi^{2} + \frac{16}{24}\pi^{4}K_{J}^{4}\varphi^{4}
+\end{gather*}
+So the Hamiltonian would become
+\begin{gather*}
+\hat{H} \approx \frac{q^{2}}{2C} - E_{J}\cos(2\pi K_{J}\varphi) = \frac{q^{2}}{2C} - E_{J} + 2\pi^{2}K_{J}^{2}\varphi^{2}E_{J} - \frac{2}{3}\pi^{4}K_{J}^{4}\varphi^{4}E_{J}
+\end{gather*}
+\color{black}
+
 \item Using the result above, write the expression for the unperturbed Hamiltonian $\hat{H}^{0}$ and perturbation term $\hat{H}'$. Additionally, specify the effective inductance $L_{\text{eff}}$ for the unperturbed Hamiltonian by making an analogy to the linear quantum LC circuit's Hamiltonian in the form:
 \begin{gather*}
 \hat{H} = \frac{\hat{\varphi}^{2}}{2L} + \frac{\hat{q}^{2}}{2C}
 \end{gather*}
+
+\color{violet}
+The most analogous terms from the result above are $\frac{q^{2}}{2C}$ and $2\pi^{2}K_{J}^{2}\varphi^{2}E_{J}$. So that would be unperturbed term, since it corresponds most to the quantum LC circuit's Hamiltonian. The perturbation term $\hat{H}'$ would be $-E_{j} - \frac{2}{3}\pi^{4}K_{J}^{4}\varphi^{4}E_{J}$. The effecitve capacitance $L_{\text{eff}}$ would then be
+\begin{gather*}
+\frac{1}{2L} = 2\pi^{2}K_{J}^{2}E_{J} \rightarrow L_{\text{eff}} = \frac{1}{4\pi^{2}K_{J}^{2}E_{J}}
+\end{gather*}
+\color{black}
 
 \item Using non-degenerate perturbation theory, show that the $1^{\text{st}}$ order correction to the energies of the charge qubit $E_{n}^{1}$ is:
 \begin{gather*}
@@ -96,6 +126,14 @@ E_{n}^{1} = -E_{J} - \frac{E_{C}}{12}[6n^{2} + 6n + 3]
 where $E_{C}$ is the capacitive charging energy and $E_{J}$ is the Josephson energy.
 
 \textit{Note}: the expression for the flux operator in terms of $E_{C}$ and $E_{J}$ is $\hat{\varphi} = \frac{i}{\pi K_{J}}\left( \frac{E_{C}}{8E_{J}} \right)^{\frac{1}{4}}(\hat{a}_{+} - \hat{a}_{-})$. 
+
+\color{violet}
+The perturbing term, is defined as $-E_{J} - \frac{2}{3}\pi^{4}K_{J}^{4}\varphi^{4}E_{J}$. Given that $\hat{\varphi} = \frac{i}{\pi K_{J}}^{\frac{1}{4}}(\hat{a}_{+} - \hat{a}_{-})$, the Hamiltonian could be rewritten as
+\begin{gather*}
+E_{n}^{(1)} = -E_{J} - \frac{2}{3}\pi^{4}K_{J}^{4}\left[ \frac{i}{\pi K_{J}} \left( \frac{E_{C}}{8E_{J}} \right)^{\frac{1}{4}}(\hat{a}_{+} - \hat{a}_{-}) \right]^{4} E_{J} = -E_{J} - \frac{2}{3}\pi^{4}K_{J}^{4} \frac{i^{4}}{\pi^{4}K_{J}^{4}} \left( \frac{E_{C}}{8E_{J}} \right) (\hat{a}_{+} - \hat{a}_{-})^{4} \\
+= -E_{J} - \frac{2}{24} E_{C} (\hat{a}_{+} - \hat{a}_{-})^{4} = -E_{J} - \frac{1}{12} E_{C}(6n^{2} + 6n + 3)
+\end{gather*}
+\color{black}
 
 \end{enumerate}
 
@@ -124,6 +162,13 @@ and the electromagnetic perturbation to the system is $\hat{H}' = eE(t)z$.
 \begin{enumerate}[a)]
 
 \item Calculate the matrix elements $H_{i, 100}' = \braket{\psi_{i} | H' | \psi_{100}}$ between the ground state and each of the four excited states. \textit{Hint}: exploit the oddness of the integrals along the z-axis to avoid having to evaluate the entire integral in each case. Since the spherical harmonics are symmetrical around the z-axis, you should only need to worry about the radial part of each wave function.
+
+\color{violet}
+For $\hat{H}_{100, 100}'$, the transition energy would be 0, since there's no transition happening. For $\hat{H}_{200, 100}$, the transition energy is
+\begin{gather*}
+\braket{\psi_{200} | \hat{H}' | \psi_{100}} = \int \frac{1}{4\sqrt{2\pi a_{a}^{3}}} \left[ 2 - \frac{r}{a_{z}} \right]e^{-\frac{r}{2a_{z}}} \hat{H}' \frac{1}{\sqrt{\pi a_{z}^{3}}}e^{-\frac{r}{a_{z}}} d^{3}r
+\end{gather*}
+\color{black}
 
 \item Show that the matrix elements $H_{ii}' = \braket{\psi_{i} | H' | \psi_{i}} = 0$ for all five states.
 
