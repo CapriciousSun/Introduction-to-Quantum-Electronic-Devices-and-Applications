@@ -1,0 +1,25 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\title{Introduction to Quantum Electronic Devices Post Lecture 16 Exercise Problem 1}
+\author{Jeremy Chen}
+\date{23/03/2026}
+\begin{document}
+	\maketitle
+
+\noindent In metals, $E_{F}$ is the energy of the highest-energy electron in the metal, therefore $E$ for all electrons satisfies the following constraint: $E \leq E_{F}$.
+
+\noindent What is the occupation probability of a level whose energy is 1 eV below $E_{F}$ (i.e. $E - E_{F} = -1$ eV)?
+
+\color{violet}
+Given the Fermi-Dirac distribution, the occupation probability is
+\begin{gather*}
+f(E) = \frac{1}{1 + \exp{\left( \frac{E - E_{F}}{K_{B}T} \right )}} = \frac{1}{1 + \exp{\left( \frac{-1}{300 * \num{8.617e-5}} \right)}} = 1
+\end{gather*}
+\color{black}
+
+\end{document}

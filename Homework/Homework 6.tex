@@ -150,7 +150,7 @@ Conceptually, the most fundamental requirements for a qubit are:
 
 In trapped-ion qubits, the computational states are chosen to be two states that are relatively close in energy. We can then use electromagnetic radiation of an appropriately chosen frequency to manipulate the state of the system. Treating such a system as consisting of only two distinct states is valid as long as the transition rates between either of the computational states and all other states of the system are negligible.
 
-In this problem, we will explore the transition rates between the ground state $\psi_{000}$ and the 4-fold degenerate first excited states $\psi_{2lm}$ of a hydrogen-like atom. The electromagnetic interaction is provided by a z-polarized, time-dependent electric field $\vec{E} = E(t)\hat{z}$.
+In this problem, we will explore the transition rates between the ground state $\psi_{100}$ and the 4-fold degenerate first excited states $\psi_{2lm}$ of a hydrogen-like atom. The electromagnetic interaction is provided by a z-polarized, time-dependent electric field $\vec{E} = E(t)\hat{z}$.
 
 The wave functions for each of the states are:
 \begin{gather*}
@@ -166,7 +166,11 @@ and the electromagnetic perturbation to the system is $\hat{H}' = eE(t)z$.
 \color{violet}
 For $\hat{H}_{100, 100}'$, the transition energy would be 0, since there's no transition happening. For $\hat{H}_{200, 100}$, the transition energy is
 \begin{gather*}
-\braket{\psi_{200} | \hat{H}' | \psi_{100}} = \int \frac{1}{4\sqrt{2\pi a_{a}^{3}}} \left[ 2 - \frac{r}{a_{z}} \right]e^{-\frac{r}{2a_{z}}} \hat{H}' \frac{1}{\sqrt{\pi a_{z}^{3}}}e^{-\frac{r}{a_{z}}} d^{3}r
+\braket{\psi_{200} | \hat{H}' | \psi_{100}} = \braket{\psi_{200} | eE(t)z | \psi_{100}} = eE(t)z \braket{\psi_{200} | z | \psi_{100}} = 0
+\end{gather*}
+Along the z-axis, both wavefunctions are symmetric, so the end result is 0. For $\hat{H}_{210, 100}$, the transition energy is
+\begin{gather*}
+	content...
 \end{gather*}
 \color{black}
 
