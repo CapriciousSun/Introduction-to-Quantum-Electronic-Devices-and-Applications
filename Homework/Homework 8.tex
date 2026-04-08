@@ -102,6 +102,77 @@ Calculate $n$ and $p$ (in cm$^{-3}$) for intrinsic Si and GaN at $T = 300$K ($E_
 
 \end{enumerate}
 
+\item \textbf{The Three Josephson Effects}
+
+As discussed in lecture, a Josephson junction consists of an insulator, non-superconducting metal, or narrow region of superconducting material, known as a “weak link”, sandwiched between two superconducting regions. Cooper pairs can tunnel through the weak link region, giving rise to a current that flows across the junction. The equations that give the relationship between the junction current $I(t)$ and junction voltage $V(t)$ are:
+\begin{gather*}
+I(t) = I_{C}\sin(\varphi(t)) \\
+\frac{\partial \varphi}{\partial t} = \frac{2eV(t)}{\hbar}
+\end{gather*}
+Based on the voltage applied, three separate regimes of operation are possible for a Josephson junction: the DC Josephson Effect, the AC Josephson Effect, and the Inverse AC Josephson Effect. 
+
+\begin{enumerate}[a)]
+
+\item \textit{DC Josephson Effect}: no voltage is applied across the junction: $V(t) = 0$.
+
+Show that the current $I(t)$ is constant in time and non-zero in general.
+
+\item \textit{AC Josephson Effect}: a DC voltage is applied across the junction: $V(t) = V_{0}$.
+
+Show that the current $I(t)$ oscillates with a frequency $\omega_{0} = 2eV_{0}/\hbar$.
+
+\item \textit{Inverse AC Josephson Effect}: the current through the junction consists of a DC and a microwve AC component, giving rise to a quantized DC voltage across the junction.
+
+If the current is of form: $I(t) = I_{C}\sin(\varphi_{0} + n\omega t + \varphi_{a}\sin(\omega t))$, where $n$ is an integer, show that the DC component of the junction voltage is $V_{DC} = n\frac{\hbar}{2e}\omega$.
+
+\end{enumerate}
+
+\item \textbf{Quantum Algorithms}
+
+Quantum computers show potential to perform large calculations in less time than classical computers by taking advantage of superposition and entanglement of quantum states. Just as with classical computers, quantum calculations must be implemented via an algorithm.
+
+Choose a quantum algorithm that you find interesting and do some research to answer the following questions:
+
+\begin{enumerate}[a)]
+
+\item What is the name of the algorithm?
+
+\color{violet}
+The name of the algorithm is Grover's algorithm.
+\color{black}
+
+\item What problem does this algorithm solve?
+
+\color{violet}
+Grover's algorithm looks at an unsorted list and finds the index specified as an input. 
+\color{black}
+
+\item What is the practical application of this algorithm?
+
+\color{violet}
+This algorithm has uses in many classes of data retrieval and graph traversal problems, given that index finding is the very basis of all of those problems. For example, Grover's algorithm could be used to unlock cryptographic keys given enough time. 
+\color{black}
+
+\item What makes this algorithm better than its classical counterpart? If it's faster - what about it makes it faster? If there is no classical counterpart, why can't this algorithm be run on a classical computer?
+
+\color{violet}
+Grover's algorithm is able to find an answer with $O(\sqrt{N})$, whereas the classical counterpart can only manage $O(N)$. This speedup is given by the amplitude increasing capability Grover's algorithm has due to the destructive interference non-answer eigenstates are subjected to, as well as the equal probability amplitude that the initial state is in. 
+\color{black}
+
+\item Which quantum gates and/or operations are used to implement this algorithm on a quantum computer? Include a quantum circuit diagram for this algorithm if you can find one.
+
+\color{violet}
+The gates used in this algorithm include the Hadamard gate, the CNOT gate, the Pauli X gate, and the measurement gate.
+\color{black}
+
+\item Choose one of the quantum gates used by the algorithm and explain in your own words what kind of operation it performs on a qubit or qubits. 
+
+\color{violet}
+The Hadamard gate puts all the measurement qubits into superposition in the beginning of the of circuit, such that the quantum state initially is $\ket{++\dots+}$. 
+\color{black}
+
+\end{enumerate}
+
 \end{enumerate}
 
 \end{document}
