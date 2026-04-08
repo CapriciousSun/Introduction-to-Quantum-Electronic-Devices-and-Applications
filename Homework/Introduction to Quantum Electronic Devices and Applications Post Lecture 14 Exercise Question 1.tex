@@ -1,0 +1,29 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{xcolor}
+\title{Introduction to Quantum Electronic Devices and Applications Post Lecture 14 Exercise Question 1}
+\author{Jeremy Chen}
+\date{16/03/2026}
+\begin{document}
+	\maketitle
+
+\noindent Evaluate the dipole matrix element $\mathcal{P} = q\braket{\psi_{210} | z | \psi_{100}}$ for the specified transition. Leave your answer in terms of the Bohr radius $a_{0}$ and the electron charge $q$. 
+
+\color{violet}
+This is an allowed energy transition, so the energy transition would have the form
+\begin{gather*}
+\braket{\psi_{210} | z | \psi_{100}} = \begin{pmatrix}
+H_{100, 100} & H_{100, 210} \\
+H_{210, 100} & H_{210, 210}
+\end{pmatrix} = \begin{pmatrix}
+0 & H_{100, 210} \\
+H_{210, 100} & 0
+\end{pmatrix} = \braket{\psi_{210} | H' | \psi_{100}}
+\end{gather*}
+\color{black}
+
+\end{document}

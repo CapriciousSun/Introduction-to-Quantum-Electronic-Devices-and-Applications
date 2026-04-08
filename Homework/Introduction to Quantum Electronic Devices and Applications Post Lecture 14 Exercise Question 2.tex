@@ -1,0 +1,24 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\title{Introduction to Quantum Electronic Devices and Applications Post Lecture 14 Question 2}
+\author{Jeremy Chen}
+\date{17/03/2026}
+\begin{document}
+	\maketitle
+
+\noindent The natural frequency $(\omega_{0} = \frac{E_{2} - E_{1}}{\hbar})$ of the transition is $\omega_{0} = \num{1.55e16}$ rads/s. What is the maximum transition probability for $\psi_{210} \rightarrow \psi_{100}$ if the electric field strength is $E_{0} = 1$ kV/m and the angular frequency of our radiation source is $\omega = \num{1.5e16}$ rad/s.?
+
+\color{violet}
+The transition probability for stimulated emission is
+\begin{gather*}
+P_{210 \rightarrow 100}(t) = \left( \frac{|\mathcal{P}|E_{0}}{\hbar} \right)^{2} \frac{\sin^{2}\left( (\omega_{0} - \omega) \frac{t}{2}\right)}{(\omega_{0} - \omega)^{2}} = \left( \frac{|\mathcal{P}|}{\hbar} \right)^{2} \frac{\sin^{2}\left( \num{0.05e16} \frac{t}{2} \right)}{\num{2.5e29}}
+\end{gather*}
+\color{black}
+
+\end{document}

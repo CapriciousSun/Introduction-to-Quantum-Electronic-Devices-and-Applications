@@ -1,0 +1,107 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\title{Introduction to Quantum Electronic Devices and Applications Homework 8}
+\author{Jeremy Chen}
+\date{07/04/2026}
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\begin{document}
+	\maketitle
+
+\begin{enumerate}[\textbf{\arabic{enumi}.}]
+
+\item \textbf{The Drude Model: Conductivity of Metals}
+
+The Drude Model is a semi-classical model of metals in which free electrons move through the metal’s crystal lattice and occasionally collide with lattice atoms. These collisions cause the electrons to lose energy and slow down. This interaction gives rise to the properties resistivity $\rho$ and conductivity $\sigma$ of metals.
+
+In this problem, you will estimate the conductivity of three metals: Copper (Cu), Gold (Au), and Tungsten (W) using the table of values below.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|P{3cm}|P{3cm}|P{3cm}|P{3cm}|P{3cm}|}
+\hline
+\textbf{Metals} & \textbf{Atomic Weight(AMU)} & \textbf{Mass Density(kg/m$^{3}$)} & \textbf{\# of Free Electrons per Atom} & \textbf{Debye Temperature $T_{D}$ (K)} \\
+\hline
+Copper(Cu) & 63.5 & $\num{8.93e3}$ & 1 & 343 \\
+\hline
+Gold(Au) & 197.0 & $\num{19.32e3}$ & 1 & 170 \\
+\hline
+Tungsten(W) & 183.8 & $\num{19.25e3}$ & 2 & 400 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{enumerate}[a)]
+
+\item Calculate the Fermi energy $E_{F}$ for Cu, Au, and W in eV.
+
+\item In the Drude model, the relevant semi-classical velocity for calculating conductivity is the Fermi velocity $v_{F}$, which is the velocity of an electron with energy $E = E_{F}$. Using the classical relationship between kinetic energy and velocity, calculate $v_{f}$ for Cu, Au, and W in m/s. 
+
+\item In order to calculate the probability of an electron colliding with a lattice atom, a relevant scattering cross-section $\Sigma$  must be defined. In the Drude model, the lattice atoms are modeled as mass $M$ (atomic mass in kg) vibrating at a frequency
+$$\omega = \frac{k_{B}T_{D}}{\hbar}$$
+where $T_{D}$ is the \textit{Debye Temperature}. In terms of these parameters, the conductivity can be written as:
+$$\sigma = \frac{e^{2}}{m_{0}\sigma v_{F}} = \frac{e^{2}}{m_{0}v_{F}}\left( \frac{Mk_{B}T_{D}^{2}}{\pi\hbar^{2}T} \right)$$
+Calculate the conductivity $\sigma$ of Cu, Au, and W at $T = 300$ K in S/m, then compare your results to literature values. 
+
+\item Based on your calculated values for $\sigma$, which of these three metals would be the best electrical conductor? Does this agree with experimental findings?
+
+\end{enumerate}
+
+\item \textbf{Insulators, and Intrinsic/Extrinsic Semiconductors: Charge Carrier Densities}
+
+The main difference between semiconductors and insulators is the number of free electrons and holes that are available for conduction when an electric field is applied. In this problem, you will examine the density of charge carriers (electrons and holes) for Silicon (Si) and Gallium Nitride (GaN).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=300px]{Energies.png}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|P{4cm}|P{4cm}|P{4cm}|P{4cm}|}
+\hline
+\textbf{Material} & \textbf{Band Gap $E_{G}$ @ T = 300K(eV)} & \textbf{Effective Conduction Band Density of States $N_{C}$ @ T = 300K(cm$^{-3}$)} & \textbf{Effective Valence Band Density of States $N_{V}$ @ T = 300K(cm$^{-3}$)} \\
+\hline
+Silicon (Si) & 1.12 & $\num{3.22e19}$ & $\num{1.82e19}$ \\
+\hline
+Gallium Nitride (GaN) & 3.43 & $\num{2.3e18}$ & $\num{4.6e19}$ \\
+\hline
+Silicon Dioxide & 9.0 & $---$ & $---$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{enumerate}[a)]
+
+\item An intrinsic material does not have any impurities that were intentionally introduced to increase its density of free electrons or holes. For intrinsic semiconductors (and insulators), the Fermi energy lies near the middle of the energy band gap:
+$$E_{F} = E_{i} = \frac{E_{g}}{2} + \frac{k_{B}T}{2}\ln\left( \frac{N_{V}}{N_{C}} \right)$$
+where $E_{i}$ is the mid-gap energy, $E_{g}$ is the energy band gap, $k_{B}$ is the Boltzmann's constant, $T$ is the temperature in Kelvin, $N_{C}$ is the effective conduction band density of states, and $N_{V}$ is the effective valence band density of states. Using the Fermi-Dirac distribution, calculate the probability that an electron is occupying the lowest-energy conduction band state at $E = E_{C} = E_{g}$ for Si, GaN, and SiO$_{2}$ at $T = 300$K. \textit{Note: }$E_{V} = 0$. 
+
+\item For a non-degenerate semiconductor, the free electron density in the conduction band $n$ and the free hole density in the valence band $p$ are given by:
+$$n = N_{C}e^{\frac{E_{F} - E_{C}}{k_{B}T}}\ \ \text{and}\ \ p = N_{V}e^{\frac{E_{V} - E_{F}}{k_{B}T}}$$
+Calculate $n$ and $p$ (in cm$^{-3}$) for intrinsic Si and GaN at $T = 300$K ($E_{F} = E_{i}$ for intrinsic materials).
+
+\item In order to increase the number of free charge carriers, impurities are intentionally added to the semiconductor in a process called \textit{doping}. Depending on the type of impurity atoms added to the semiconductor, the semiconductor can acquire additional free electrons (\textit{n-type doping}) or additional free holes (\textit{p-type doping})
+
+\begin{enumerate}[a)]
+
+\item Calculate $n$ (in cm$^{-3}$) for \textit{n-type} Si and GaN at $T = 300$K when $E_{C} - E_{F} = 0.1$ eV
+
+\item Calculate $p$ (in cm$^{-3}$) for \textit{p-type} Si and GaN at $T = 300$K when $E_{F} - E_{V} = 0.2$ eV. 
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,49 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{natbib}
+\title{Introduction to Quantum Electronic Devices and Applications Progress Update}
+\author{Jeremy Chen}
+\date{30/03/2026}
+\begin{document}
+	\maketitle
+
+\section*{Progress Update}
+\subsection*{Overview}
+The modality of qubits that I am selecting is neutral atoms, a method of quantum computing that relies on optical tweezers to trap massive arrays of Rydberg atoms that then act as qubits. Optical tweezers are lasers that use the radiation pressure of photons to trap atomic scale particles. In the case of a neutral atom quantum computer, they are Rydberg atoms, an atom with electrons that are in a very high excited state. Rydberg atoms are more sensitive to electromagnetic fields, hence their utility in being tweezed. The physical phenomenon relies on roughly a 1:2 ratio of neutral atoms to sites, where each site has some probability of trapping an atom. Each atom represents a distinct computational state, where information is encoded within the hyperfine state of an atom. The two base states, $\ket{0}$ and $\ket{1}$ are realized by the ground state and first excited state below the Rydberg level $\ket{r}$. 
+
+\subsection*{Basic Physical Model}
+The Hamiltonian of a sodium Rydberg atom (\cite{Gallagher_1994}) that ignores electron spin is
+\begin{gather*}
+H = -\frac{\nabla^{2}}{2} + \frac{1}{r} + V_{d}(r) + E_{z}
+\end{gather*}
+where $\nabla^{2}$ is
+\begin{gather*}
+\nabla^{2} = \frac{4}{\zeta + \eta}\frac{\partial}{\partial \zeta}\left( \zeta \frac{\partial}{\partial \zeta} \right) + \frac{4}{\zeta + \eta}\frac{\partial}{\partial \eta} \left( \eta \frac{\partial}{\partial \eta} \right) + \frac{1}{\zeta\eta} \frac{\partial^{2}}{\partial \varphi^{2}}
+\end{gather*}
+The typical spherical coordinates here have been replaced with two new ones. $\zeta = r + z$ and $\eta = r - z$. The Hamiltonian for two Rydberg atoms is given by
+\begin{gather*}
+\hat{H} = \hat{H}_{1} + \hat{H}_{2} + V_{rr}(\ket{r}_{1}\bra{r} \otimes \ket{r}_{2}\bra{r})
+\end{gather*}
+where $\hat{H}_{i}$ is the Hamiltonian of an individual qubit and $V_{rr}$ is the entanglement between the two qubits. This entanglement process is physically achieved through Rydber interactions, which rely on the large electric dipole moments of Rydberg atoms (\cite{Henriet_2020}). Perturbation theory shows that this large electric dipole creates strong interaction between two adjacent Rydberg atoms. The energy levels of a Rydberg atom, given by standard quantum numbers is
+\begin{gather*}
+E_{nlm} = -\frac{\text{Ry}}{(n - \delta_{lm}(n))^{2}}
+\end{gather*}
+where Ry is the Rydberg constant of $109737.315685$ cm$^{-1}$. 
+
+\subsection*{Interactions with Qubit}
+Interactions with atoms are called Rydberg interactions, which are "blockaded" (\cite{Saffman_2010}) from interacting with other atoms, such that at most two atoms can be excited by one source. The blockading can be specified to single atom or two-atom systems. The possible states of the Rydberg atoms being targeted are $\ket{g}$, $\ket{\gamma k}$, and $\ket{\varphi kl}$.The initialization process is done by lasers
+pushing atoms into the right sites, where they are put into the ground state $\ket{g}$. The first excited state of a single atom is given by
+\begin{gather*}
+\ket{s} = \frac{\Omega_{\gamma k}}{\Omega_{N}}\ket{\gamma k}
+\end{gather*}
+where $\Omega_{\gamma k}$ is an excitation Rabi frequency (\cite{Brennen_1999}). A measurement is done with either a camera measuring the fluorescence of a qubit or through light scattering. 
+
+\bibliographystyle{apalike}
+\bibliography{refs}
+
+\end{document}
