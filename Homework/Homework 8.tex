@@ -44,13 +44,50 @@ Tungsten(W) & 183.8 & $\num{19.25e3}$ & 2 & 400 \\
 
 \item Calculate the Fermi energy $E_{F}$ for Cu, Au, and W in eV.
 
+\color{violet}
+The Fermi energy is given by $E_{F} = \frac{\hbar^{2}}{2m}(3p\pi^{2})^{2/3}$ where $p = \frac{Nd}{V}$. For copper
+\begin{gather*}
+E_{F} = \frac{\hbar^{2}}{2m_{e}} \left( 3\pi^{2} * \frac{1 * \num{8.93e3} * \num{6.022e23}}{63.5 * 10^{-3}} \right) = \num{1.125e-18} \text{ J}= 7.026\text{ eV}
+\end{gather*}
+For gold
+\begin{gather*}
+E_{F} = \frac{\hbar^{2}}{2m_{e}} \left( 3\pi^{2} * \frac{1 * \num{19.32e3} * \num{6.022e23}}{197 * 10^{-3}} \right) = \num{8.851e-19}\text{ J} = 5.525\text{ eV}
+\end{gather*}
+For tungsten
+\begin{gather*}
+E_{F} = \frac{\hbar^{2}}{2m_{e}} \left( 3\pi^{2}\frac{2 * \num{19.25e3} * \num{6.022e23}}{183.8* 10^{-3}} \right) = \num{1.468e-18}\text{ J} = 9.163\text{ eV}
+\end{gather*}
+\color{black}
+
 \item In the Drude model, the relevant semi-classical velocity for calculating conductivity is the Fermi velocity $v_{F}$, which is the velocity of an electron with energy $E = E_{F}$. Using the classical relationship between kinetic energy and velocity, calculate $v_{f}$ for Cu, Au, and W in m/s. 
+
+\color{violet}
+Given that classical kinetic energy is $\frac{1}{2}mv^{2}$, the Fermi velocity would be calculated the same way. For copper,
+\begin{gather*}
+\num{1.125e-18} = \frac{1}{2} * \num{9.109e-31} * v_{F}^{2} \rightarrow v_{F} = 1571989.848\text{ m/s}
+\end{gather*}
+For gold,
+\begin{gather*}
+\num{8.851e-19} = \frac{1}{2} * \num{9.109e-31} * v_{F}^{2} \rightarrow v_{F} = 1394025.735\text{ m/s}
+\end{gather*}
+For tungsten
+\begin{gather*}
+\num{1.468e-18} = \frac{1}{2} * \num{9.109e-31} * v_{F}^{2} \rightarrow v_{F} = 1795266.389\text{ m/s}
+\end{gather*}
+\color{black}
 
 \item In order to calculate the probability of an electron colliding with a lattice atom, a relevant scattering cross-section $\Sigma$  must be defined. In the Drude model, the lattice atoms are modeled as mass $M$ (atomic mass in kg) vibrating at a frequency
 $$\omega = \frac{k_{B}T_{D}}{\hbar}$$
 where $T_{D}$ is the \textit{Debye Temperature}. In terms of these parameters, the conductivity can be written as:
-$$\sigma = \frac{e^{2}}{m_{0}\sigma v_{F}} = \frac{e^{2}}{m_{0}v_{F}}\left( \frac{Mk_{B}T_{D}^{2}}{\pi\hbar^{2}T} \right)$$
+$$\sigma = \frac{e^{2}}{m_{0}\Sigma v_{F}} = \frac{e^{2}}{m_{0}v_{F}}\left( \frac{Mk_{B}T_{D}^{2}}{\pi\hbar^{2}T} \right)$$
 Calculate the conductivity $\sigma$ of Cu, Au, and W at $T = 300$ K in S/m, then compare your results to literature values. 
+
+\color{violet}
+For copper
+\begin{gather*}
+\sigma = \frac{e^{2}}{m_{0} * 1571989.848} \frac{\num{1.054e-25} * k_{B} * 343^{2}}{\pi\hbar^{2} * 300} = 
+\end{gather*}
+\color{black}
 
 \item Based on your calculated values for $\sigma$, which of these three metals would be the best electrical conductor? Does this agree with experimental findings?
 
@@ -69,7 +106,7 @@ The main difference between semiconductors and insulators is the number of free 
 \centering
 \begin{tabular}{|P{4cm}|P{4cm}|P{4cm}|P{4cm}|}
 \hline
-\textbf{Material} & \textbf{Band Gap $E_{G}$ @ T = 300K(eV)} & \textbf{Effective Conduction Band Density of States $N_{C}$ @ T = 300K(cm$^{-3}$)} & \textbf{Effective Valence Band Density of States $N_{V}$ @ T = 300K(cm$^{-3}$)} \\
+\textbf{Material} & \textbf{Band Gap $E_{g}$ @ T = 300K(eV)} & \textbf{Effective Conduction Band Density of States $N_{C}$ @ T = 300K(cm$^{-3}$)} & \textbf{Effective Valence Band Density of States $N_{V}$ @ T = 300K(cm$^{-3}$)} \\
 \hline
 Silicon (Si) & 1.12 & $\num{3.22e19}$ & $\num{1.82e19}$ \\
 \hline
@@ -86,17 +123,67 @@ Silicon Dioxide & 9.0 & $---$ & $---$ \\
 $$E_{F} = E_{i} = \frac{E_{g}}{2} + \frac{k_{B}T}{2}\ln\left( \frac{N_{V}}{N_{C}} \right)$$
 where $E_{i}$ is the mid-gap energy, $E_{g}$ is the energy band gap, $k_{B}$ is the Boltzmann's constant, $T$ is the temperature in Kelvin, $N_{C}$ is the effective conduction band density of states, and $N_{V}$ is the effective valence band density of states. Using the Fermi-Dirac distribution, calculate the probability that an electron is occupying the lowest-energy conduction band state at $E = E_{C} = E_{g}$ for Si, GaN, and SiO$_{2}$ at $T = 300$K. \textit{Note: }$E_{V} = 0$. 
 
+\color{violet}
+The Fermi-Dirac distribution is $f(E) = \frac{1}{1 + e^{(E - E_{F})/k_{B}T}}$. First, $E_{F}$ needs to be calculated. For silicon
+\begin{gather*}
+E_{F} = \frac{1.12}{2} + \frac{k_{B}T}{2}\ln\left( \frac{\num{1.82e19}}{\num{3.22e19}} \right) = 0.56 \rightarrow f(E) = \frac{1}{1 + e^{(E - E_{F})/k_{B}T}} = \num{2.939e-10}
+\end{gather*}
+For gallium nitride
+\begin{gather*}
+E_{F} = \frac{3.43}{2} + \frac{k_{B}T}{2}\ln\left( \frac{\num{4.6e19}}{2.3e18} \right) = 1.754 \rightarrow f(E) = \frac{1}{1 + e^{(E - E_{F})/k_{B}T}} = \num{6.897e-29}
+\end{gather*}
+For silicon dioxide
+\begin{gather*}
+E_{F} = \frac{9}{2} = 4.5 \rightarrow f(E) = \frac{1}{1 + e^{(E - E_{F})/k_{B}T}} = \num{2.514e-76}
+\end{gather*}
+\color{black}
+
 \item For a non-degenerate semiconductor, the free electron density in the conduction band $n$ and the free hole density in the valence band $p$ are given by:
 $$n = N_{C}e^{\frac{E_{F} - E_{C}}{k_{B}T}}\ \ \text{and}\ \ p = N_{V}e^{\frac{E_{V} - E_{F}}{k_{B}T}}$$
 Calculate $n$ and $p$ (in cm$^{-3}$) for intrinsic Si and GaN at $T = 300$K ($E_{F} = E_{i}$ for intrinsic materials).
 
-\item In order to increase the number of free charge carriers, impurities are intentionally added to the semiconductor in a process called \textit{doping}. Depending on the type of impurity atoms added to the semiconductor, the semiconductor can acquire additional free electrons (\textit{n-type doping}) or additional free holes (\textit{p-type doping})
+\color{violet}
+For silicon
+\begin{gather*}
+n = \num{3.22e19} e^{\frac{0.56 - 1.12}{k_{B}T}} = \num{9.626e9} \\
+p = \num{1.82e19} e^{\frac{-0.56}{k_{B}T}} = \num{9.463e9}
+\end{gather*}
+For gallium nitride
+\begin{gather*}
+n = \num{2.3e18}e^{\frac{1.754 - 3.43}{k_{B}T}} = \num{1.586e-10} \\
+p = \num{4.6e19}e^{\frac{-1.754}{k_{B}T}} = \num{1.586e-10}
+\end{gather*}
+\color{black}
+
+\item In order to increase the number of free charge carriers, impurities are intentionally added to the semiconductor in a process called \textit{doping}. Depending on the type of impurity atoms added to the semiconductor, the semiconductor can acquire additional free electrons (\textit{n-type doping}) or additional free holes (\textit{p-type doping}).
 
 \begin{enumerate}[a)]
 
 \item Calculate $n$ (in cm$^{-3}$) for \textit{n-type} Si and GaN at $T = 300$K when $E_{C} - E_{F} = 0.1$ eV
 
+\color{violet}
+For silicon
+\begin{gather*}
+n = \num{3.22e19} e^{\frac{-0.1}{k_{B}T}} = \num{6.728e17}
+\end{gather*}
+For gallium nitride
+\begin{gather*}
+n = \num{1.82e19}e^{\frac{-0.1}{k_{B}T}} = \num{3.803e17}
+\end{gather*}
+\color{black}
+
 \item Calculate $p$ (in cm$^{-3}$) for \textit{p-type} Si and GaN at $T = 300$K when $E_{F} - E_{V} = 0.2$ eV. 
+
+\color{violet}
+For silicon
+\begin{gather*}
+p = \num{2.3e18}e^{\frac{-0.2}{k_{B}T}} = \num{1.004e15}
+\end{gather*}
+For gallium
+\begin{gather*}
+p = \num{4.6e19}e^{\frac{-0.2}{k_{B}T}} = \num{2.008e16}
+\end{gather*}
+\color{black}
 
 \end{enumerate}
 
@@ -117,13 +204,25 @@ Based on the voltage applied, three separate regimes of operation are possible f
 
 Show that the current $I(t)$ is constant in time and non-zero in general.
 
+\color{violet}
+If $V(t) = 0$, $\frac{\partial \varphi}{\partial t} = 0$, so the change in current would be constant. Given that $\sin(\varphi(t))$ is non-zero to start, it would always be non-zero.
+\color{black}
+
 \item \textit{AC Josephson Effect}: a DC voltage is applied across the junction: $V(t) = V_{0}$.
 
 Show that the current $I(t)$ oscillates with a frequency $\omega_{0} = 2eV_{0}/\hbar$.
 
+\color{violet}
+Given that the oscillation frequency is the rate at which the rate of change current and $V(t) = V_{0}$, $\omega_{0} = \frac{2eV_{0}}{\hbar}$. 
+\color{black}
+
 \item \textit{Inverse AC Josephson Effect}: the current through the junction consists of a DC and a microwve AC component, giving rise to a quantized DC voltage across the junction.
 
 If the current is of form: $I(t) = I_{C}\sin(\varphi_{0} + n\omega t + \varphi_{a}\sin(\omega t))$, where $n$ is an integer, show that the DC component of the junction voltage is $V_{DC} = n\frac{\hbar}{2e}\omega$.
+
+\color{violet}
+
+\color{black}
 
 \end{enumerate}
 
