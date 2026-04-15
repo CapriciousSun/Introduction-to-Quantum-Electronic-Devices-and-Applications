@@ -85,11 +85,24 @@ Calculate the conductivity $\sigma$ of Cu, Au, and W at $T = 300$ K in S/m, then
 \color{violet}
 For copper
 \begin{gather*}
-\sigma = \frac{e^{2}}{m_{0} * 1571989.848} \frac{\num{1.054e-25} * k_{B} * 343^{2}}{\pi\hbar^{2} * 300} = 
+\sigma = \frac{e^{2}}{m_{0} * 1571989.848} \frac{63.5 * \num{1.661e-27} * k_{B} * 343^{2}}{\pi\hbar^{2} * 300} = 292612092.4\text{ S/m}
 \end{gather*}
+which is lower than the literature values of around $\num{5.9e7}$ S/m. For gold
+\begin{gather*}
+\sigma = \frac{e^{2}}{m_{0} * 1394025.735} \frac{197 * \num{1.661e-27} * k_{B} * 170^{2}}{\pi\hbar^{2} * 300} = 251462552.1\text{ S/m}
+\end{gather*}
+which is lower than the literature values of $\num{4.1e7}$ S/m. For tungsten
+\begin{gather*}
+\sigma = \frac{e^{2}}{m_{0} * 1795266.389} \frac{183.8 * \num{1.661e-27} * k_{B} * 400^{2}}{\pi\hbar^{2} * 300} = 10085945.82\text{ S/m}
+\end{gather*}
+which is lower than the literature values of $\num{1.8e7}$ S/m. 
 \color{black}
 
 \item Based on your calculated values for $\sigma$, which of these three metals would be the best electrical conductor? Does this agree with experimental findings?
+
+\color{violet}
+Given the values, the best conductor is copper, which does match experimental values. 
+\color{black}
 
 \end{enumerate}
 
@@ -221,7 +234,7 @@ Given that the oscillation frequency is the rate at which the rate of change cur
 If the current is of form: $I(t) = I_{C}\sin(\varphi_{0} + n\omega t + \varphi_{a}\sin(\omega t))$, where $n$ is an integer, show that the DC component of the junction voltage is $V_{DC} = n\frac{\hbar}{2e}\omega$.
 
 \color{violet}
-
+Given that $I(t) = I_{C}\sin(\varphi(t))$, $\varphi(t)$ here must be $\varphi_{0} + n\omega t + \varphi_{a}\sin(\omega t)$. So, differentiating that would result in $\frac{\partial \varphi}{\partial t} = n\omega + \varphi_{a}\cos(\omega t)$. Given that $\frac{\partial \varphi}{\partial t} = \frac{2eV(t)}{\hbar}$, that means $V(t) = \frac{\hbar}{2e}(n\omega + \varphi_{a}\cos(\omega t))$. As time passes, that would give some $V_{DC} = \frac{\hbar n\omega}{2e}$. 
 \color{black}
 
 \end{enumerate}
