@@ -1,0 +1,49 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.5in]{geometry}
+\title{Introduction to Quantum Electronics and Applications Presentation Paper}
+\author{Jeremy Chen}
+\begin{document}
+	\maketitle
+	
+\section*{+ Neutral Atom Quantum Computers +}
+
+\subsection*{++ An Introduction ++}
+
+To start, neutral atoms are atoms with no net electric charge, so they have the same number of protons and electrons. This separates them from ions, which represent another modality of quantum computing. Unlike trapped ions, which rely on time-varying electric fields to keep their qubits in place, neutral atoms rely on optical tweezers, which are lasers that keep the atoms chilled and confined. More on that later.
+
+Right now, neutral atoms remain as one of the most promising modalities of quantum computers, as a paper from November of 2025 has shown an implementation of 6100 highly coherent qubit array that represent over 100 logical qubits. That has been, so far, the most amount of qubits and logical qubits any modality of quantum computing has exhibited. 
+
+\subsection*{++ The Physical Model ++}
+
+The physical model of neutral atom quantum computing is based in the Rydberg formula, which describes atoms that have exaggerated responses to electric and magnetic fields. This is a result of a high $n$ quantum number in the electrons of the atoms. So let's look at a sodium Rydberg atom's Hamiltonian
+$$\hat{H} = -\frac{\nabla^{2}}{2} + \frac{1}{r} + V_{d}(r) + E_{z}$$
+where $\nabla^{2}$ has the form
+$$\nabla^{2} = \frac{4}{\zeta + \eta}\frac{\partial}{\partial \zeta} \left( \zeta \frac{\partial}{\partial \zeta} \right) + \frac{4}{\zeta + \eta} \frac{\partial}{\partial \eta}\left( \eta \frac{\partial}{\partial \eta} \right) + \frac{1}{\zeta \eta}\frac{\partial^{2}}{\partial \varphi^{2}}$$
+$V_{d}(r)$ is the difference between the potential of the sodium atom and the Coulomb potential, and $E_{z}$ is an electric field being applied in the z-axis. 
+
+In $\nabla^{2}$, $\zeta = r + z = r(1 + \cos(\theta))$, $\eta = r - z = r(1 - \cos(\theta))$ , and $\varphi = \tan^{-1}\frac{y}{x}$. The reason that these coordinates are used instead of your typical spherical coordinates is because of the Stark effect, which define the splitting of the spectral lines of an atom due to the presence of an electric field. The Stark effect is more easily represented with parabolic coordinates, due to the separability of the coordinates even with the perturbation of the electric field. 
+
+The reason that the z-axis is chosen for the fact that the resulting quantum numbers has form
+$$\braket{nlm | E_{z} | n'l'm'} = E\braket{nlm | r\cos(\theta) | n'l'm'}$$
+The transition terms would be non-vanishing, and therefore a valid transition, if $m' = m$ and $l' = l \pm 1$. This has the added benefit of removing the energy degeneracy for certain values of $n$. A single Rydberg atom would have an energy of 
+$$E_{nlm} = -\frac{\text{Ry}}{(n - \delta_{lm}(n))^{2}}$$
+where $\text{Ry}$ is the Rydberg constant 109737.315685cm$^{-1}$ and $\delta{lm}$ is a Kronecker delta. Two Rydberg atoms, then have a Hamiltonian of form
+$$\hat{H} = \hat{H}_{1} + \hat{H}_{2} + V_{rr}(\ket{r}_{1}\bra{r} \otimes \ket{r}_{2}\bra{r})$$
+which represent the Hamiltonian of each individual qubit as well as the entanglement interaction between two or qubits. 
+
+\subsection*{++ Physical Implementation ++}
+
+Physically, neutral atom qubits are implemented by optical tweezers, which are highly focused arrays of lasers that can hold atoms in place. These tweezers are typically magneto-optical traps (MOTs), which have zero magnetic field and instead use a quadru-pole electric field and polarized light to simultaneously trap and cool the atoms. A large scale tweezer array would often look like a lithography setup, where two sets of lasers, each at a different wavelength, would go through a series of mirrors and converge on some flat plate, or the neutral atom site. 
+
+Let's go over the 5 DiVincenzo criteria to show how a neutral atom qubit is capable of quantum computation. The ground state $\ket{0}$ state of the qubit is given by the hyperfine ground state that a Rydberg atom has, whereas the excited state $\ket{1}$ is given by higher energy states due to excitation from optical pumping that then settle at a metastable state $\ket{1}$ after several spontaneous emissions. Qubits are initialized by moving them into the lattice site with lasers. Coherence is kept through constant reloading of the qubits from a reservoir of coherent qubits as well as a phenomenon known as the Rydberg blockade, which prevents nearby qubits from affect the states of each other whilst also increasing long-distance connectivity. In fact, the coherence times of neutral atoms are in the regime of around 20 minutes. Qubit gates are implemented through Clifford gate, which in addition to the $T$ phase shift gate, form a full set of quantum gates. These gates are accomplished through pulses of laser light from the tweezers. Finally, the measurement of the qubits is accomplished through imaging qubits and seeing the fluorescence that they exhibit from that. During the readout process, a resonant is applied to the array to "push out" all atoms in $\ket{1}$, before imaging the atoms are at $\ket{0}$, which is what gives the higher fidelity of readouts since there would be less uncertainty within the system. 
+
+\subsection*{++ Qubit Operation ++}
+
+
+\subsection*{++ Outlook and Comparisons ++}
+	
+\end{document}
